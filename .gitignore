@@ -1,0 +1,20 @@
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Python
+**/__pycache__/**
+
+# VSCode
+.vscode/
+*.DS_Store
+
+# Results
+results/
+logs/
+notebooks/
+
+# Keys
+configs/utils/config_api_keys.yaml
