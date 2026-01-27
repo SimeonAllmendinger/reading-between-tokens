@@ -1,0 +1,655 @@
+GERMANY:
+  PARAMETERS:
+    age:
+      - jünger als 20
+      - zwischen 20 und 30
+      - zwischen 30 und 40
+      - zwischen 40 und 50
+      - zwischen 50 und 60
+      - zwischen 60 und 70
+      - älter als 70
+
+    gender:
+      - weiblich
+      - männlich
+
+    education:
+      - keinen Abschluss
+      - einen Hauptschulabschluss
+      - einen Realschulabschluss
+      - Abitur
+      - einen Hochschulabschluss
+
+    hhincome:
+      - niedrig
+      - mittel
+      - hoch
+
+    employment:
+      - nicht berufstätig
+      - in Ausbildung
+      - berufstätig
+
+    left_leaning:
+      - stark links
+      - links der Mitte
+      - in der Mitte
+      - rechts der Mitte
+      - stark rechts
+
+    immigration:
+      - einschränken
+      - weder erleichtern noch einschränken
+      - erleichtern
+
+    inequality:
+      - dagegen
+      - unentschlossen
+      - dafür
+
+    year_of_election:
+      - "2021"
+      - "2025"
+
+    country:
+      - Deutschland
+
+  PROMPT_INTRODUCTION: >-
+    Du erhältst die Beschreibung einer Person, die in Deutschland lebt. Danach sollst du die politische Partei nennen, die diese Person höchstwahrscheinlich gewählt hat.
+    **Deine Antwort darf NUR der Name der Partei sein.**
+    Beschreibung:
+  
+  PROMPT_VARIANTS_TEMPLATE:
+    ## 1
+    - >-
+      Ich bin {age} Jahre alt und {gender}. Ich habe {education}, mein monatliches Nettoeinkommen im Haushalt ist {hhincome} und ich bin {employment}. Ideologisch neige ich zur Position {left_leaning}. Ich denke, die Regierung sollte den Zuzug von Ausländern {immigration} und bin {inequality} in Bezug auf staatliche Maßnahmen zur Verringerung von Einkommensunterschieden.
+      Wenn {year_of_election} Wahlen wären, für welche Partei würde ich stimmen? Ich wähle die Partei...
+    ## 2
+    - >-
+      Ich denke die Regierung sollte den Zuzug von Ausländern {immigration} und bin {inequality} in Bezug auf staatliche Maßnahmen zur Verringerung von Einkommensunterschieden. Ideologisch neige ich zur Position {left_leaning}. Ich habe {education}, mein monatliches Nettoeinkommen im Haushalt ist {hhincome} und ich bin {employment}. Ich bin {age} Jahre alt und {gender}. 
+      Wenn {year_of_election} Wahlen wären, für welche Partei würde ich stimmen? Ich wähle die Partei...
+    ## 3
+    - >-
+      Bezogen auf mein Alter bin ich {age} und mein Geschlecht ist {gender}. {education} habe ich, mein monatliches Haushaltsnettoeinkommen ist {hhincome}, und ich bin {employment}. Politisch gesehen neige ich zur Position {left_leaning}. Fragt man mich zu meiner Meinung bezüglich Immigration, sage ich, dass man sie {immigration} soll. Außerdem bin ich {inequality} was die Frage angeht, ob die Regierung Maßnahmen ergreifen sollte, um die Einkommensunterschieden zu verringern.
+      Für welche Partei würde ich mich bei einer Wahl im Jahr {year_of_election} entscheiden? Ich wähle die Partei...
+    ## 4
+    - >-
+      Fragt man mich zu meiner Meinung bezüglich Immigration, sage ich, dass man sie {immigration} soll. Außerdem bin ich {inequality} was die Frage angeht, ob die Regierung Maßnahmen ergreifen sollte, um die Einkommensunterschieden zu verringern. Politisch gesehen neige ich zur Position {left_leaning}. Mein monatliches Haushaltsnettoeinkommen ist {hhincome}, ich bin {employment} und habe {education}. Bezogen auf mein Geschlecht bin ich {gender} und mein Alter ist {age}. 
+      Für welche Partei würde ich mich bei einer Wahl im Jahr {year_of_election} entscheiden? Ich wähle die Partei...
+    ## 5
+    - >-
+      Ich bin {age} Jahre alt und gehöre dem {gender}en Geschlecht an. Bildungstechnisch habe ich {education}, ich bin {employment} und mein Haushaltseinkommen im Monat ist {hhincome}. Die Position {left_leaning} sagt mir ideologisch am meisten zu. Immigration sollte man meiner Meinung nach {immigration}, und ich bin {inequality}, was Maßnahmen der Regierung angeht, Einkommensungleichheit zu reduzieren. 
+      Meine Stimme bei einer Wahl {year_of_election} würde ich folgender Partei geben...
+    ## 6
+    - >-
+      Bildungstechnisch habe ich {education}, ich bin {employment} und mein Haushaltseinkommen im Monat ist {hhincome}. Immigration sollte man meiner Meinung nach {immigration}, und ich bin {inequality}, was Maßnahmen der Regierung angeht, Einkommensungleichheit zu reduzieren. Ich bin {age} Jahre alt und gehöre dem {gender}en Geschlecht an. Die Position {left_leaning} sagt mir ideologisch am meisten zu.
+      Meine Stimme bei einer Wahl {year_of_election} würde ich folgender Partei geben...
+    ## 7
+    - >-
+      Mein Alter ist {age} Jahre, mein Geschlecht ist {gender}, ich habe {education} und bin {employment}. Mein monatliches Haushaltseinkommen netto ist {hhincome} und politisch sagt mir am meisten die Position {left_leaning} zu. Immigration sollte man {immigration} und ich bin {inequality} bezüglich Maßnahmen der Regierung, die Einkommensunterschiede verringern.
+      Bei den Wahlen {year_of_election} setzte ich bei folgender Partei mein Kreuz:...
+    ## 8
+    - >-
+      Mein monatliches Haushaltseinkommen netto ist {hhincome} und politisch sagt mir am meisten die Position {left_leaning} zu. Mein Alter ist {age} Jahre, mein Geschlecht ist {gender}, ich habe {education} und bin {employment}. Immigration sollte man {immigration} und ich bin {inequality} bezüglich Maßnahmen der Regierung, die Einkommensunterschiede verringern.
+      Bei den Wahlen {year_of_election} setzte ich bei folgender Partei mein Kreuz:...
+    ## 9
+    - >-
+      Du bist {age} Jahre alt und {gender}. Du hast {education}, dein monatliches Nettoeinkommen im Haushalt ist {hhincome} und du bist {employment}. Ideologisch neigst du zur Position {left_leaning}. Du denkst, die Regierung sollte den Zuzug von Ausländern {immigration} und bist {inequality} in Bezug auf staatliche Maßnahmen zur Verringerung von Einkommensunterschieden.
+      Wenn {year_of_election} Wahlen wären, für welche Partei würdest du stimmen? Du wählst die Partei...
+    ## 10
+    - >-
+      Du denkst die Regierung sollte den Zuzug von Ausländern {immigration} und bist {inequality} in Bezug auf staatliche Maßnahmen zur Verringerung von Einkommensunterschieden. Ideologisch neigst du zur Position {left_leaning}. Du hast {education}, dein monatliches Nettoeinkommen im Haushalt ist {hhincome} und du bist {employment}. Du bist {age} Jahre alt und {gender}. 
+      Wenn {year_of_election} Wahlen wären, für welche Partei würdest du stimmen? Du wählst die Partei...
+
+NETHERLANDS:
+  PARAMETERS:
+    age:
+      - jonger dan 20
+      - tussen 20 en 30
+      - tussen 30 en 40
+      - tussen 40 en 50
+      - tussen 50 en 60
+      - tussen 60 en 70
+      - ouder dan 70
+
+    gender:
+      - vrouwelijk
+      - mannelijk
+
+    education:
+      - alleen basisonderwijs
+      - een beroepsopleiding
+      - havo of vwo
+      - hbo of universiteit
+
+    hhincome:
+      - laag
+      - gemiddeld
+      - hoog
+
+    employment:
+      - niet werkzaam
+      - in opleiding of studie
+      - werkzaam 
+      - gepensioneerd
+
+    left_leaning:
+      - sterk links
+      - links van het midden
+      - in het midden
+      - rechts van het midden
+      - sterk rechts
+
+    immigration:
+      - niet eens
+      - eens
+
+    inequality:
+      - tegen
+      - onbeslist
+      - voor
+
+    year_of_election:
+      - "2021"
+      - "2023"
+
+    country:
+      - the Netherlands
+  
+  PROMPT_INTRODUCTION: >-
+    Je krijgt een beschrijving van een persoon die in Holland woont. Vervolgens wordt je gevraagd om de partij te noemen waar deze persoon waarschijnlijk op gestemd heeft.
+    Het antwoord mag ALLEEN de naam van de partij bevatten.
+
+  PROMPT_VARIANTS_TEMPLATE:
+    ## 1
+    - >-
+      Ik ben {age} jaar en {gender}. Ik heb {education} gevolgd, mijn netto maandinkomen is {hhincome} en ik ben {employment}. Ideologisch neig ik naar de positie {left_leaning}. Ik ben het {immigration} met de stelling dat mijn gemeente opvang moet bieden aan asielzoekers als dat nodig is en ik ben {inequality} ten aanzien van overheidsmaatregelen om inkomensverschillen te verkleinen.
+      Als er {year_of_election} verkiezingen zouden zijn, op welke partij zou ik dan stemmen? Ik stem op de partij...
+    ## 2
+    - >-
+      Ik ben het {immigration} met de stelling dat mijn gemeente opvang moet bieden aan asielzoekers als dat nodig is en ik ben {inequality} ten aanzien van overheidsmaatregelen om inkomensverschillen te verkleinen. Ideologisch neig ik naar de positie {left_leaning}. Ik heb {education} gevolgd, mijn netto maandinkomen is {hhincome} en ik ben {employment}. Ik ben {age} jaar en {gender}.
+      Als er {year_of_election} verkiezingen zouden zijn, op welke partij zou ik dan stemmen? Ik stem op de partij...
+    ## 3
+    - >-
+      Wat betreft mijn leeftijd ben ik {age} jaar en mijn geslacht is {gender}. {education} heb ik gevolgd, mijn netto maandinkomen is {hhincome}, en ik ben {employment}. Politiek gezien neig ik naar de positie {left_leaning}. Als men mij vraagt naar mijn mening over immigratie, ben ik het [eens/niet eens] met de uitspraak dat mijn gemeente indien nodig opvang moet regelen voor asielzoekers. Daarnaast ben ik {inequality} over de vraag of de overheid maatregelen moet nemen om inkomensverschillen te verkleinen.
+      Voor welke partij zou ik kiezen bij een verkiezing in {year_of_election}? Ik kies de partij...
+    ## 4
+    - >-
+      Als men mij vraagt naar mijn mening over immigratie, ben ik het [eens/niet eens] met de uitspraak dat mijn gemeente indien nodig opvang moet regelen voor asielzoekers. Daarnaast ben ik {inequality} over de vraag of de overheid maatregelen moet nemen om inkomensverschillen te verkleinen. Politiek gezien neig ik naar de positie {left_leaning}. Mijn netto maandinkomen is {hhincome}, ik ben {employment}, en {education} heb ik gevolgd. Wat betreft mijn geslacht ben ik {gender} en ik ben {age} jaar.
+      Voor welke partij zou ik kiezen bij een verkiezing in {year_of_election}? Ik kies de partij...
+    ## 5
+    - >-
+      Ik ben {age} jaar en behoor tot het {gender} geslacht. Qua opleiding heb ik {education} gevolgd, ik ben {employment} en het netto maandinkomen is {hhincome}. Ideologisch spreekt de positie {left_leaning} mij het meest aan. Wat immigratie betreft, ben ik het [eens/niet eens] met de bewering dat gemeenten verplicht zijn asielzoekers op te vangen wanneer dat nodig is, en ik ben {inequality} ten aanzien van overheidsmaatregelen om inkomensongelijkheid te verkleinen.
+      Mijn stem bij een verkiezingen in {year_of_election} zou ik aan de volgende partij geven...  
+    ## 6
+    - >-
+      Qua opleiding heb ik {education} gevolgd, ik ben {employment} en het netto maandinkomen is {hhincome}. Wat immigratie betreft, ben ik het [eens/niet eens] met de bewering dat gemeenten verplicht zijn asielzoekers op te vangen wanneer dat nodig is, en ik ben {inequality} ten aanzien van overheidsmaatregelen om inkomensongelijkheid te verkleinen. Ik ben {age} jaar en behoor tot het {gender} geslacht. Ideologisch spreekt de positie {left_leaning} mij het meest aan.
+      Mijn stem bij een verkiezingen in {year_of_election} zou ik aan de volgende partij geven... 
+    ## 7
+    - >-
+      Mijn leeftijd is {age} jaar, mijn geslacht is {gender}, ik heb {education} gevolgd en ik ben {employment}. Het netto maandinkomen is {hhincome} en politiek spreekt de positie {left_leaning} mij het meest aan. Ik ben het [eens/niet eens] met het standpunt dat mijn gemeente verantwoordelijkheid moet nemen voor opvang van asielzoekers indien nodig, en ik ben {inequality} ten aanzien van maatregelen van de overheid om inkomensverschillen te verkleinen.
+      Bij de verkiezingen {year_of_election} zet ik mijn kruisje bij de volgende partij:...
+    ## 8
+    - >-
+      Het netto maandinkomen is {hhincome} en politiek spreekt de positie {left_leaning} mij het meest aan. Mijn leeftijd is {age} jaar, mijn geslacht is {gender}, ik heb {education} gevolgd en ik ben {employment}. Ik ben het [eens/niet eens] met het standpunt dat mijn gemeente verantwoordelijkheid moet nemen voor opvang van asielzoekers indien nodig, en ik ben {inequality} ten aanzien van maatregelen van de overheid om inkomensverschillen te verkleinen.
+      Bij de verkiezingen {year_of_election} zet ik mijn kruisje bij de volgende partij:...
+    ## 9
+    - >-
+      Je bent {age} jaar en {gender}. Je hebt {education} gevolgd, je netto maandinkomen is {hhincome} en je bent {employment}. Ideologisch neig je naar de positie {left_leaning}. Je bent het {immigration} met de stelling dat jouw gemeente opvang moet bieden aan asielzoekers als dat nodig is, en je bent {inequality} ten aanzien van overheidsmaatregelen om inkomensverschillen te verkleinen.
+      Als er {year_of_election} verkiezingen zouden zijn, op welke partij zou je dan stemmen? Je stemt op de partij...
+    ## 10
+    - >-
+      Je bent het {immigration} met de stelling dat jouw gemeente opvang moet bieden aan asielzoekers als dat nodig is, en je bent {inequality} ten aanzien van overheidsmaatregelen om inkomensverschillen te verkleinen. Ideologisch neig je naar de positie {left_leaning}. Je hebt {education} gevolgd, je netto maandinkomen is {hhincome} en je bent {employment}. Je bent {age} jaar en {gender}. 
+      Als er {year_of_election} verkiezingen zouden zijn, op welke partij zou je dan stemmen? Je stemt op de partij...
+
+UNITED KINGDOM: 
+  PARAMETERS:
+    age:
+    - younger than 20
+    - between 20 and 30
+    - between 30 and 40
+    - between 40 and 50
+    - between 50 and 60
+    - between 60 and 70
+    - older than 70
+
+    gender:
+      - female
+      - male
+
+    education:
+      - with no formal qualifications
+      - with qualifications below GCSE level
+      - after achieving GCSEs
+      - after achieving A-levels
+      - with a university degree
+
+    hhincome:
+      - low
+      - moderate
+      - high
+
+    employment:
+      - not working
+      - in training 
+      - working
+      - retired
+
+    left_leaning:
+      - strongly left
+      - center-left
+      - center
+      - center-right
+      - strongly right
+
+    immigration:
+      - more
+      - about the same number of
+      - fewer
+
+    inequality:
+      - disagree
+      - neither agree nor disagree
+      - agree
+
+    year_of_election:
+      - "2024"
+
+    country:
+      - the United Kingdom
+
+  PROMPT_INTRODUCTION: >-
+    You'll get the description of a person living in the United Kingdom. After that, you'll be asked to name the political party they most likely voted for.
+    **Your answer must be ONLY the party name.**
+    Description:
+
+  PROMPT_VARIANTS_TEMPLATE:
+    ## 1
+    - >-
+      I am {age} years old and {gender}. I left education {education}, my yearly household income is {hhincome} and I am {employment}. Ideologically I tend toward the position {left_leaning}. I think the UK should allow {immigration} immigrants to come to the UK to live and I {inequality} that the government should redistribute income from the better off to those who are less well off.
+      If there were elections {year_of_election}, which party would I vote for? I vote for the party...
+
+    ## 2
+    - >-
+      I think the UK should allow {immigration} immigrants to come to the UK to live and I {inequality} that the government should redistribute income from the better off to those who are less well off. Ideologically I tend toward the position {left_leaning}. I left education {education}, my yearly household income is {hhincome} and I am {employment}. I am {age} years old and {gender}.
+      If there were elections {year_of_election}, which party would I vote for? I vote for the party...
+
+    ## 3
+    - >-
+      Regarding my age, I am {age} and my gender is {gender}. I completed my formal education {education}, my yearly household income is {hhincome}, and I am {employment}. Politically speaking, I tend toward the position {left_leaning}. If asked about my opinion regarding immigration, I say that the UK should allow {immigration} immigrants. Additionally, I {inequality} when it comes to the question of whether the government should redistribute income from the rich to the poor.
+      Which party would I choose in an election in {year_of_election}? I choose the party...
+
+    ## 4
+    - >-
+      If asked about my opinion regarding immigration, I say that the UK should allow {immigration} immigrants. Additionally, I {inequality} when it comes to the question of whether the government should redistribute income from the rich to the poor. Politically speaking, I tend toward the position {left_leaning}. My yearly household income is {hhincome}, I am {employment} and completed my formal education {education}. Regarding my gender, I am {gender} and my age is {age}.
+      Which party would I choose in an election in {year_of_election}? I choose the party...
+
+    ## 5
+    - >-
+      I am {age} years old and belong to the {gender} gender. In terms of education, I concluded {education}, I am {employment} and my monthly household income is {hhincome}. The position {left_leaning} appeals to me most ideologically. In my opinion, {immigration} immigrants should be allowed to live in the UK, and I {inequality} that the government ought to redistribute income from the better off to those who are less well off.
+      In an election {year_of_election}, I would give my vote to the following party...
+
+    ## 6
+    - >-
+      In terms of education, I concluded {education}, I am {employment} and my monthly household income is {hhincome}. In my opinion, {immigration} immigrants should be allowed to live in the UK, and I {inequality} that the government ought to redistribute income from the better off to those who are less well off. I am {age} years old and belong to the {gender} gender. The position {left_leaning} appeals to me most ideologically.
+      In an election {year_of_election}, I would give my vote to the following party...
+
+    ## 7
+    - >-
+      My age is {age} years, my gender is {gender}, I ended my educational journey {education} and I am {employment}. My yearly household income is {hhincome} and politically, the position {left_leaning} appeals to me most. The UK should allow {immigration} immigrants to the country and I {inequality} that the government should take measures that reduce the income gap between rich and poor.
+      In the elections {year_of_election}, I would mark my ballot for the following party:...
+
+    ## 8
+    - >-
+      My yearly household income is {hhincome} and politically, the position {left_leaning} appeals to me most. My age is {age} years, my gender is {gender}, I ended my educational journey {education} and I am {employment}. The UK should allow {immigration} immigrants to the country and I {inequality} that the government should take measures that reduce the income gap between rich and poor.
+      In the elections {year_of_election}, I would mark my ballot for the following party:...
+
+    ## 9
+    - >-
+      You are {age} years old and {gender}. You left education {education}, your yearly household income is {hhincome} and you are {employment}. Ideologically you tend toward the position {left_leaning}. You think the UK should allow {immigration} immigrants to come to the UK to live and you {inequality} that the government should redistribute income from the better off to those who are less well off.
+      If there were elections {year_of_election}, which party would you vote for? You vote for the party...
+
+    ## 10
+    - >-
+      You think the UK should allow {immigration} immigrants to come to the UK to live and you {inequality} that the government should redistribute income from the better off to those who are less well off. Ideologically you tend toward the position {left_leaning}. You left education {education}, your yearly household income is {hhincome} and you are {employment}. You are {age} years old and {gender}.
+      If there were elections {year_of_election}, which party would you vote for? You vote for the party...
+
+UNITED STATES:
+  PARAMETERS:
+    age:
+    - younger than 20
+    - between 20 and 30
+    - between 30 and 40
+    - between 40 and 50
+    - between 50 and 60
+    - between 60 and 70
+    - older than 70
+
+    gender:
+      - female
+      - male
+
+    education:
+      - no credential
+      - a highschool credential
+      - a university degree
+
+    hhincome:
+      - low
+      - moderate
+      - high
+
+    employment:
+      - not working
+      - in training # or studying ## vll auch eher "not working yet"
+      - working
+      - retired
+
+    left_leaning:
+      - extremely liberal
+      - liberal
+      - moderate
+      - conservative
+      - extremely conservative
+
+    immigration:
+      - increased
+      - left the same as it is now 
+      - decreased
+
+    inequality:
+      - agree
+      - neither agree nor disagree
+      - disagree
+
+    year_of_election:
+      - "2024"
+    
+    country:
+      - the United States
+
+  PROMPT_INTRODUCTION: >-
+    You'll get the description of a person living in the United States of America. After that, you'll be asked to name the political party they most likely voted for.
+    **Your answer must be ONLY the party name.**
+    Description:
+
+  PROMPT_VARIANTS_TEMPLATE:
+    ## 1
+    - >-
+      I am {age} years old and {gender}. I have {education}, my household's monthly net income is {hhincome}, and I am {employment}. Ideologically, I lean toward the {left_leaning} position. I believe the number of immigrants from foreign countries who are permitted to come to the United States to live should be {immigration} and I {inequality} that the government should see to jobs and standard of living.  
+      If there were elections {year_of_election}, which party would I vote for? I vote for the party...
+
+    ## 2
+    - >-
+      I believe the number of immigrants from foreign countries who are permitted to come to the United States to live should be {immigration} and I {inequality} that the government should see to jobs and standard of living. Ideologically, I lean toward the {left_leaning} position. I have {education}, my household's monthly net income is {hhincome}, and I am {employment}. I am {age} years old and {gender}.  
+      If there were elections {year_of_election}, which party would I vote for? I vote for the party...
+
+    ## 3
+    - >-
+      In terms of age, I am {age} and my gender is {gender}. I have {education}, my monthly household net income is {hhincome}, and I am {employment}. Politically, I lean toward the {left_leaning} position. When asked about immigration, I say the number of immigrants permitted to the US should be {immigration}. Also, I {inequality} when it comes to whether the government should see to jobs and standard of living.
+      Which party would I choose in an election in {year_of_election}? I choose the party...
+
+    ## 4
+    - >-
+      When asked about immigration, I say the number of immigrants permitted to the US should be {immigration}. Also, I {inequality} when it comes to whether the government should see to jobs and standard of living. Politically, I lean toward the {left_leaning} position. My monthly household net income is {hhincome}, I am {employment}, and I have {education}. In terms of gender, I am {gender}, and my age is {age}.  
+      Which party would I choose in an election in {year_of_election}? I choose the party...
+
+    ## 5
+    - >-
+      I am {age} years old and identify as {gender}. I have {education}, I am {employment}, and my monthly household income is {hhincome}. Ideologically, I am most aligned with the {left_leaning} position. In my view, the number of immigrants should be {immigration}, and I {inequality} that it's the government's responsibility to provide jobs and maintain quality of life.  
+      In an election {year_of_election}, I would give my vote to the following party...
+
+    ## 6
+    - >-
+      I have {education}, I am {employment}, and my monthly household income is {hhincome}. In my view, the number of immigrants should be {immigration}, and I {inequality} that it's the government's responsibility to provide jobs and maintain quality of life. I am {age} years old and identify as {gender}. Ideologically, I am most aligned with the {left_leaning} position.  
+      In an election {year_of_election}, I would give my vote to the following party...
+
+    ## 7
+    - >-
+      I am {age} years old, my gender is {gender}, I have {education}, and I am {employment}. My monthly net household income is {hhincome}, and politically I lean toward the {left_leaning} position. I think the number of immigrants allowed to live in the US should be {immigration}, and I {inequality} regarding government actions to secure job opportunities and ensure a good standard of living.      
+      In the election {year_of_election}, I would mark my ballot for the following party:...
+
+    ## 8
+    - >-
+      My monthly net household income is {hhincome}, and politically I lean toward the {left_leaning} position. I am {age} years old, my gender is {gender}, I have {education}, and I am {employment}. I think the number of immigrants allowed to live in the US should be {immigration}, and I {inequality} regarding government actions to secure job opportunities and ensure a good standard of living. 
+      In the election {year_of_election}, I would mark my ballot for the following party:...
+
+    ## 9
+    - >-
+      You are {age} years old and {gender}. You have {education}, your household's monthly net income is {hhincome}, and you are {employment}. Ideologically, you lean toward the {left_leaning} position. You believe the number of immigrants from foreign countries who are permitted to come to the United States to live should be {immigration} and you {inequality} that the government should see to jobs and standard of living.  
+      If there were elections {year_of_election}, which party would you vote for? You vote for the party...
+
+    ## 10
+    - >-
+      You believe the number of immigrants from foreign countries who are permitted to come to the United States to live should be {immigration} and you {inequality} that the government should see to jobs and standard of living. Ideologically, you lean toward the {left_leaning} position. You have {education}, your household's monthly net income is {hhincome}, and you are {employment}. You are {age} years old and {gender}.  
+      If there were elections {year_of_election}, which party would you vote for? You vote for the party...
+
+CANADA:
+  PARAMETERS:
+    age:
+    - younger than 20
+    - between 20 and 30
+    - between 30 and 40
+    - between 40 and 50
+    - between 50 and 60
+    - between 60 and 70
+    - older than 70
+
+    gender:
+      - female
+      - male
+
+    education:
+      - no diploma or degree
+      - a high school diploma 
+      - a college diploma # all secondary community college stuff (not unversity; different from US terminology )
+      - a university degree 
+
+    hhincome:
+      - low
+      - moderate
+      - high
+
+    employment:
+      - not working
+      - in training # or studying ## vll auch eher "not working yet"
+      - working
+      - retired
+
+    left_leaning:
+      - strongly left
+      - center-left
+      - center
+      - center-right
+      - strongly right
+
+    immigration:
+      - more
+      - about the same number of
+      - fewer
+
+    inequality:
+      - more
+      - about the same as now
+      - less
+
+    year_of_election:
+      - in 2019
+
+    country:
+      - Canada
+
+  PROMPT_INTRODUCTION: >-
+    You'll get the description of a person living in Canada. After that, you'll be asked to name the political party they most likely voted for.
+    **Your answer must be ONLY the party name.**
+    Description:
+
+  PROMPT_VARIANTS_TEMPLATE: 
+    ## 1
+    - >-
+      I am {age} years old and {gender}. I have {education}, my yearly household income is {hhincome} and I am {employment}. Ideologically I tend toward the position {left_leaning}. I think Canada should admit {immigration} immigrants and {inequality} should be done to reduce the gap between the rich and the poor.
+      If there were elections {year_of_election}, which party would I vote for? I vote for the party...
+
+    ## 2
+    - >-
+      I think Canada should admit {immigration} immigrants and {inequality} should be done to reduce the gap between the rich and the poor. Ideologically I tend toward the position {left_leaning}. I have {education}, my yearly household income is {hhincome} and I am {employment}. I am {age} years old and {gender}.
+      If there were elections {year_of_election}, which party would I vote for? I vote for the party...
+
+    ## 3
+    - >-
+      Regarding my age, I am {age} and my gender is {gender}. I have {education}, my yearly household income is {hhincome}, and I am {employment}. Politically speaking, I tend toward the position {left_leaning}. If asked about my opinion regarding immigration, I say that {immigration} immigrants should be allowed to live in Canada. Additionally, I think {inequality} should be done when it comes to the question of whether the government should reduce the gap between the rich and the poor.
+      Which party would I choose in an election in {year_of_election}? I choose the party...
+
+    ## 4
+    - >-
+      If asked about my opinion regarding immigration, I say that {immigration} immigrants should be allowed to live in Canada. Additionally, I think {inequality} should be done when it comes to the question of whether the government should reduce the gap between the rich and the poor. Politically speaking, I tend toward the position {left_leaning}. My yearly household income is {hhincome}, I am {employment} and have {education}. Regarding my gender, I am {gender} and my age is {age}.
+      Which party would I choose in an election in {year_of_election}? I choose the party...
+
+    ## 5
+    - >-
+      I am {age} years old and belong to the {gender} gender. In terms of education, I have {education}, I am {employment} and my monthly household income is {hhincome}. The position {left_leaning} appeals to me most ideologically. In my opinion, {immigration} immigration should be allowed, and I believe that the government ought to do {inequality} to bridge the economic divide.
+      In an election {year_of_election}, I would give my vote to the following party...
+
+    ## 6
+    - >-
+      In terms of education, I have {education}, I am {employment} and my monthly household income is {hhincome}. In my opinion, {immigration} immigration should be allowed, and I believe that the government ought to do {inequality} to bridge the economic divide. I am {age} years old and belong to the {gender} gender. The position {left_leaning} appeals to me most ideologically.
+      In an election {year_of_election}, I would give my vote to the following party...
+
+    ## 7
+    - >-
+      My age is {age} years, my gender is {gender}, I have {education} and am {employment}. My yearly household income is {hhincome} and politically, the position {left_leaning} appeals to me most. Concerning immigration, {immigration} immigrants should be admitted and I think the government should do {inequality} to reduce the gap between rich and poor.
+      In the elections {year_of_election}, I would mark my ballot for the following party:...
+
+    ## 8
+    - >-
+      My yearly household income is {hhincome} and politically, the position {left_leaning} appeals to me most. My age is {age} years, my gender is {gender}, I have {education} and am {employment}. Concerning immigration, {immigration} immigrants should be admitted and I think the government should do {inequality} to reduce the gap between rich and poor.
+      In the elections {year_of_election}, I would mark my ballot for the following party:...
+
+    ## 9
+    - >-
+      You are {age} years old and {gender}. You have {education}, your yearly household income is {hhincome} and you are {employment}. Ideologically you tend toward the position {left_leaning}. You think Canada should admit {immigration} immigrants and {inequality} should be done to reduce the gap between the rich and the poor.
+      If there were elections {year_of_election}, which party would you vote for? You vote for the party...
+
+    ## 10
+    - >-
+      You think Canada should admit {immigration} immigrants and {inequality} should be done to reduce the gap between the rich and the poor. Ideologically you tend toward the position {left_leaning}. You have {education}, your yearly household income is {hhincome} and you are {employment}. You are {age} years old and {gender}.
+      If there were elections {year_of_election}, which party would you vote for? You vote for the party...
+
+NEW ZEALAND:
+  PARAMETERS:
+    age:
+    - younger than 20
+    - between 20 and 30
+    - between 30 and 40
+    - between 40 and 50
+    - between 50 and 60
+    - between 60 and 70
+    - older than 70
+
+    gender:
+      - female
+      - male
+
+    education:
+      - no qualification
+      - a certificate #secondary level qualification
+      - a diploma #qualification
+      - a university degree 
+
+    hhincome:
+      - low
+      - moderate
+      - high
+
+    employment:
+      - not working
+      - in training # or studying ## vll auch eher "not working yet"
+      - working
+      - retired
+
+    left_leaning:
+      - strongly left
+      - center-left
+      - center
+      - center-right
+      - strongly right
+
+    immigration:
+      - agree 
+      - neither agree nor disagree
+      - disagree
+
+    inequality:
+      - agree
+      - neither agree nor disagree
+      - disagree
+
+    year_of_election:
+      - in 2020
+
+    country:
+      - New Zealand
+
+  PROMPT_INTRODUCTION: >-
+    You'll get the description of a person living in New Zealand. After that, you'll be asked to name the political party they most likely voted for.
+    **Your answer must be ONLY the party name.**
+    Description:
+
+  PROMPT_VARIANTS_TEMPLATE:
+    ## 1
+    - >-
+      I am {age} years old and {gender}. I have {education}, my yearly household income is {hhincome} and I am {employment}. Ideologically I tend toward the position {left_leaning}. I {immigration} that New Zealand culture is generally harmed by immigrants and I {inequality} that the government should take measures to reduce differences in income levels.
+      If there were elections {year_of_election}, which party would I vote for? I vote for the party...
+
+    ## 2
+    - >-
+      I {immigration} that New Zealand culture is generally harmed by immigrants and I {inequality} that the government should take measures to reduce differences in income levels. Ideologically I tend toward the position {left_leaning}. I have {education}, my yearly household income is {hhincome} and I am {employment}. I am {age} years old and {gender}.
+      If there were elections {year_of_election}, which party would I vote for? I vote for the party...
+
+    ## 3
+    - >-
+      Regarding my age, I am {age} and my gender is {gender}. I have {education}, my yearly household income is {hhincome}, and I am {employment}. Politically speaking, I tend toward the position {left_leaning}. If asked about my opinion regarding immigration, I {immigration} that immigrants harm New Zealand's culture. Additionally, I {inequality} that the government ought to take measures to reduce income inequalities. 
+      Which party would I choose in an election in {year_of_election}? I choose the party...
+
+    ## 4
+    - >-
+      If asked about my opinion regarding immigration, I {immigration} that immigrants harm New Zealand's culture. Additionally, I {inequality} that the government ought to take measures to reduce income inequalities. Politically speaking, I tend toward the position {left_leaning}. My yearly household income is {hhincome}, I am {employment} and have {education}. Regarding my gender, I am {gender} and my age is {age}.
+      Which party would I choose in an election in {year_of_election}? I choose the party...
+
+    ## 5
+    - >-
+      I am {age} years old and belong to the {gender} gender. In terms of education, I have {education}, I am {employment} and my yearly household income is {hhincome}. The position {left_leaning} appeals to me most ideologically. I {immigration} that New Zealand culture is generally threatened by immigration, and I {inequality} that the government should reduce income inequality.
+      In an election {year_of_election}, I would give my vote to the following party...
+
+    ## 6
+    - >-
+      In terms of education, I have {education}, I am {employment} and my yearly household income is {hhincome}. I {immigration} that New Zealand culture is generally threatened by immigration, and I {inequality} that the government should reduce income inequality. I am {age} years old and belong to the {gender} gender. The position {left_leaning} appeals to me most ideologically.
+      In an election {year_of_election}, I would give my vote to the following party...
+
+    ## 7
+    - >-
+      My age is {age} years, my gender is {gender}, I have {education} and am {employment}. My yearly household income is {hhincome} and politically, the position {left_leaning} appeals to me most. Regarding immigration I {immigration} with the statement that immigrants threaten New Zealand's culture, and I {inequality} that the government ought to implement measures that reduce income differences.
+      In the elections {year_of_election}, I would mark my ballot for the following party:...
+
+    ## 8
+    - >-
+      My yearly household income is {hhincome} and politically, the position {left_leaning} appeals to me most. My age is {age} years, my gender is {gender}, I have {education} and am {employment}. Regarding immigration I {immigration} with the statement that immigrants threaten New Zealand's culture, and I {inequality} that the government ought to implement measures that reduce income differences.
+      In the elections {year_of_election}, I would mark my ballot for the following party:...
+
+    ## 9
+    - >-
+      You are {age} years old and {gender}. You have {education}, your yearly household income is {hhincome} and you are {employment}. Ideologically you tend toward the position {left_leaning}. You {immigration} that New Zealand culture is generally harmed by immigrants and you {inequality} that the government should take measures to reduce differences in income levels.      
+      If there were elections {year_of_election}, which party would you vote for? You vote for the party...
+
+    ## 10
+    - >-
+      You {immigration} that New Zealand culture is generally harmed by immigrants and you {inequality} that the government should take measures to reduce differences in income levels. Ideologically you tend toward the position {left_leaning}. You have {education}, your yearly household income is {hhincome} and you are {employment}. You are {age} years old and {gender}.
+      If there were elections {year_of_election}, which party would you vote for? You vote for the party...
+
+    - >-
+      Complete the following sentence with one of the issue owners from the following list. Provide **only** the issue owner name.
+      Issue Owner list = {io_names_mapped}
+      The sentence:
+      I am a committed {io_name_mapped} voter, so in the election of {year_of_election} I vote for the issue owner:
+      Reminder:
+      Provide **only** the issue owner name.
