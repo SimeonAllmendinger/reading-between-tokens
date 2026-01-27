@@ -1,0 +1,10 @@
+FROM_EXISTING_PROBING: False
+Value_Probe:
+  n_epochs: 4000
+  activation_layer:
+    min_ratio: 0.50 #! > 0
+    max_ratio: 0.90 #! < 1
+  test_size: 0.1
+  random_state: 42
+  shuffle: True
+  top_k_tokens: 5
