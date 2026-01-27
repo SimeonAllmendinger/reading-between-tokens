@@ -1,0 +1,6 @@
+iqr_ratio: 2.5
+vector_effect_factor: -1.0
+filter_with_vector_effect: True
+n_data_items_in_vector_effect_analysis: 512
+batch_size: 32
+extract_diametrically_opposed_vectors: True
