@@ -1,0 +1,16 @@
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pytorch
+  - pytorch-cuda
+  - deepspeed
+  - transformers
+  - scikit-learn
+  - matplotlib
+  - pandas
+  - pip
+  - pip:
+      - transformer-lens
