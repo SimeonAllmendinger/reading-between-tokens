@@ -24,6 +24,13 @@ parser = argparse.ArgumentParser(
 )
 
 parser.add_argument("--path_dir", type=str, help="Path to the storage directory")
+# Deepspeed launcher passes --local_rank; accept it to avoid argparse errors.
+parser.add_argument(
+    "--local_rank",
+    type=int,
+    default=int(os.environ.get("LOCAL_RANK", 0)),
+    help="Local rank passed by DeepSpeed",
+)
 parser = deepspeed.add_config_arguments(parser)
 
 class RunHandler():

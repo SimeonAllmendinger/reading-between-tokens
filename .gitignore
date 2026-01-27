@@ -1,8 +1,5 @@
-# Environments
-.venv/
-env/
-venv/
-ENV/
+# Environment
+conda-env/
 
 # Python
 **/__pycache__/**
@@ -16,5 +13,12 @@ results/
 logs/
 notebooks/
 
+# Data
+data/
+
 # Keys
 configs/utils/config_api_keys.yaml
+
+# Shell jobs
+*.sh.e*
+*.sh.o*
