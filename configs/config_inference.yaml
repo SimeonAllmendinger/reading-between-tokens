@@ -1,0 +1,123 @@
+CHECKPOINTS:
+  load_checkpoint: False
+  path_checkpoint_dir: "./data/checkpoints"
+
+dataloader:
+  batch_size: 4
+  shuffle: False
+  num_workers: 4
+  pin_memory: True
+
+inference_hook:
+  max_tokens_generated: 15
+  deepspeed_tp_size: 1
+  # Input device for token tensors ("cuda" or "cpu")
+  input_device: "cuda"
+
+activations:
+  pos: -1 # Get activations for all layers
+  # META Llama
+  meta-llama/Llama-3.3-70B-Instruct: #* Instruct model
+    n_resid_pre_layers: 64
+    embedding_dim: 8192
+    # "<|start_header_id|>assistant<|end_header_id|>\n\n"
+    assistant_start_token_ids: [128006,78191,128007,271]
+    # "<|eot_id|>"
+    assistant_stop_token_ids: [128009]
+    is_instruct_model: True
+  
+  meta-llama/Llama-3.1-8B-Instruct: #* Instruct model
+    n_resid_pre_layers: 32
+    embedding_dim: 4096
+    # "<|start_header_id|>assistant<|end_header_id|>\n\n"
+    assistant_start_token_ids: [128006,78191,128007,271]
+    # "<|eot_id|>"
+    assistant_stop_token_ids: [128009]
+    is_instruct_model: True
+  
+  meta-llama/Llama-3.1-8B:
+    n_resid_pre_layers: 32
+    embedding_dim: 4096
+    is_instruct_model: False
+  
+  meta-llama/Llama-2-7b-hf:
+    n_resid_pre_layers: 32
+    embedding_dim: 4096
+    is_instruct_model: False
+  
+  meta-llama/Llama-2-7b-chat-hf: #* Instruct model
+    n_resid_pre_layers: 32
+    embedding_dim: 4096
+    # "[/INST] "
+    assistant_start_token_ids: [518, 29914, 25580, 29962, 29871]
+    # "</s>""
+    assistant_stop_token_ids: [2]
+    is_instruct_model: True
+
+  # Mistral AI
+  mistralai/Mistral-7B-Instruct-v0.1: #* Instruct model
+    n_resid_pre_layers: 32
+    embedding_dim: 4096
+    # "[/INST] "
+    assistant_start_token_ids: [733, 28748, 16289, 28793, 28705]
+    # "</s>""
+    assistant_stop_token_ids: [2]
+    is_instruct_model: True
+  
+  mistralai/Mistral-7B-v0.1:
+    n_resid_pre_layers: 32
+    embedding_dim: 4096
+    is_instruct_model: False
+
+  # Google
+  google/gemma-7b-it: #* Instruct model
+    n_resid_pre_layers: 28
+    embedding_dim: 3072
+    # "<start_of_turn>assistant\n"
+    assistant_start_token_ids: [106, 105776, 108]
+    # <end_of_turn>\n
+    assistant_stop_token_ids: [1, 107, 108]
+    is_instruct_model: True
+  
+  google/gemma-2-9b-it: #* Instruct model
+    n_resid_pre_layers: 42
+    embedding_dim: 3584
+    # "<start_of_turn>model\n"
+    assistant_start_token_ids: [106, 2516, 108]
+    # <end_of_turn>\n
+    assistant_stop_token_ids: [1, 107, 108]
+    is_instruct_model: True
+  
+  google/gemma-2-9b:
+    n_resid_pre_layers: 42
+    embedding_dim: 3584
+    is_instruct_model: False
+
+  google/gemma-2-27b-it: #* Instruct model (breaks with transformer lens)
+    n_resid_pre_layers: 46
+    embedding_dim: 4608
+    # "<start_of_turn>model\n"
+    assistant_start_token_ids: [106, 2516, 108]
+    # <end_of_turn>\n
+    assistant_stop_token_ids: [1, 107, 108]
+    is_instruct_model: True
+
+  # Qwen
+  Qwen/Qwen3-14B: #* Instruct model
+    n_resid_pre_layers: 40
+    embedding_dim: 5120
+    # "<|im_start|>assistant\n<think>\\n</think>\\n"
+    assistant_start_token_ids: [151644, 77091, 198, 151667, 271, 151668, 271]
+    # "<|im_end|>"
+    assistant_stop_token_ids: [151645]
+    is_instruct_model: True
+
+tokenizer:
+  padding: 'longest'
+  truncation: True
+  return_tensors: pt
+  max_seq_length: Null
+  padding_side: 'right'
+
+DEFAULT_SYSTEM_PROMPT: >-
+  NO SYSTEM PROMPT
