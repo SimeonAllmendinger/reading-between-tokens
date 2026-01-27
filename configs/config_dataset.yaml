@@ -1,0 +1,1422 @@
+PATH_DATASET: Null
+FROM_EXISTING_DATASET: False
+
+GERMANY:
+  party_names:
+    - AfD
+    - CDU
+    - DIE LINKE
+    - FDP
+    - GRÜNE
+    - SPD
+  
+  name_mapping:
+    Christlich Demokratische Union: 
+      - Christlich Demokratische Union
+      - CDU / CSU
+      - Christlich Demokratische Union Deutschlands / Christlich-Soziale Union in Bayern e.V.
+      - Christlich Demokratische Union Deutschlands
+      - " Christlich Demokratische Union Deutschlands "
+      - Christlich-Soziale Union in Bayern e.V.
+      - Christlich Demokratische Union Deutschlands in Niedersachsen
+      - "Christlich Demokratische Union Deutschlands "
+      - CSU
+      - CDU/CSU
+      - CDU
+    Bündnis 90/Die Grünen:
+      - Bündnis 90/Die Grünen
+      - Die Grünen
+      - GRÜNE
+      - BÜNDNIS 90/DIE GRÜNEN
+      - "BÜNDNIS 90/DIE GRÜNEN  "
+    Sozialdemokratische Partei Deutschlands:
+      - Sozialdemokratische Partei Deutschlands
+      - SPD
+      - "Sozialdemokratische Partei Deutschlands  "
+    Alternative für Deutschland:
+      - Alternative für Deutschland
+      - AfD
+      - "Alternative für Deutschland "
+    Die Linke:
+      - Die Linke
+      - DIE LINKE
+      - DIE LINKE. Niedersachsen
+      - "DIE LINKE "
+    Freie Demokratische Partei:
+      - Freie Demokratische Partei
+      - FDP
+      - "Freie Demokratische Partei  "
+
+  color_mapping:
+    Alternative für Deutschland: "blue"
+    Christlich Demokratische Union: "black"
+    Die Linke: "purple"
+    Freie Demokratische Partei: "yellow"
+    Bündnis 90/Die Grünen: "green"
+    Sozialdemokratische Partei Deutschlands: "red"
+
+  Wahl-O-Mat:
+    election_ids:
+      ### 2025 ###
+      # - 2025/deutschland
+      ### 2024 ###
+      # - 2024/europa
+      # - 2024/brandenburg
+      # - 2024/sachsen
+      # - 2024/thueringen
+      ### 2023 ###
+      # - 2023/bayern
+      # - 2023/berlin
+      # - 2023/bremen
+      # - 2023/hessen
+      ### 2022 ###
+      # - 2022/niedersachsen
+      # - 2022/nordrheinwestfalen
+      # - 2022/saarland
+      # - 2022/schleswigholstein
+      ### 2021 ###
+      # - 2021/badenwuerttemberg
+      # - 2021/berlin
+      - 2021/deutschland
+      # - 2021/mecklenburgvorpommern
+      # - 2021/rheinlandpfalz
+      # - 2021/sachsenanhalt
+
+    statement_ids:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      - 35
+      - 36
+      - 37
+
+    agreement:
+      - Stimme zu
+      - Neutral
+      - Stimme nicht zu
+
+  value_probe_variants:
+    - >-
+      Du bekommst eine politische Aussage, eine Antwort darauf und einen Kommentar. 
+      Diese stammen von einer deutschen Partei. 
+
+      **Aussage:** $$$statement$$$  
+      **Antwort:** $$$answer$$$  
+      **Kommentar:** $$$comment$$$  
+
+      Wähle aus der folgenden Liste: $$$io_names$$$  
+      Welche Partei hat diese Antwort und diesen Kommentar abgegeben?  
+      Bitte antworte nur mit dem Parteinamen.
+      
+    - >-
+      Lies die folgende politische Aussage und die Reaktion einer anonymen Partei darauf. 
+      Deine Aufgabe ist es, zu erkennen, welche Partei hinter der Antwort und dem Kommentar steckt.
+
+      ### Aussage:
+      $$$statement$$$
+
+      ### Antwort:
+      $$$answer$$$
+
+      ### Kommentar:
+      $$$comment$$$
+
+      Welche Partei aus der Liste $$$io_names$$$ trifft am ehesten zu?  
+      Gib nur den Parteinamen als Antwort an.
+      
+    - >-
+      Basierend auf der folgenden politischen Aussage, der gegebenen Antwort und dem beigefügten Kommentar:  
+      Welche deutsche Partei steckt deiner Meinung nach dahinter?
+
+      **Aussage:** $$$statement$$$  
+      **Antwort:** $$$answer$$$  
+      **Kommentar:** $$$comment$$$
+
+      Mögliche Parteien: $$$io_names$$$  
+      Deine Antwort: (nur der Parteiname)
+
+    - >-
+      Eine Partei hat Stellung zu einer Aussage genommen und diese kommentiert.  
+      Anhand der folgenden Informationen sollst du herausfinden, um welche Partei es sich handelt.
+
+      Aussage: $$$statement$$$  
+      Antwort: $$$answer$$$  
+      Kommentar: $$$comment$$$
+
+      Welche Partei aus $$$io_names$$$ könnte das sein?  
+      Gib ausschließlich den Parteinamen an.
+
+    - >-
+      Stelle dir vor, du wärst in einem politischen Zuordnungsspiel.  
+      Du bekommst einen Kommentar, eine Antwort und die dazugehörige politische Aussage.
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Wähle die Partei, die das geäußert haben könnte, aus dieser Liste: $$$io_names$$$  
+      Nenne nur den Parteinamen.
+
+    - >-
+      Schau dir die folgenden Inhalte an:
+
+      **Politische Aussage:** $$$statement$$$  
+      **Antwort einer Partei:** $$$answer$$$  
+      **Kommentar dieser Partei:** $$$comment$$$
+
+      Welche der folgenden Parteien $$$io_names$$$ hat das vermutlich so formuliert?  
+      Antworte bitte nur mit dem Parteinamen.
+
+    - >-
+      Basierend auf einer politischen Aussage, einer parteipolitischen Antwort und einem Kommentar:  
+      Welche deutsche Partei hat diese Aussagen getroffen?
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Wähle die richtige Partei aus dieser Liste: $$$io_names$$$  
+      Antworte mit dem Namen der Partei.
+
+    - >-
+      Eine anonyme Partei hat auf eine politische Aussage geantwortet und ihre Meinung in einem Kommentar ergänzt.
+
+      ### Aussage:
+      $$$statement$$$
+
+      ### Antwort:
+      $$$answer$$$
+
+      ### Kommentar:
+      $$$comment$$$
+
+      Welche Partei aus $$$io_names$$$ passt am besten zu dieser Position?  
+      Antworte bitte ausschließlich mit dem Parteinamen.
+
+    - >-
+      Du siehst eine politische Aussage und die Reaktion einer anonymen deutschen Partei darauf.  
+      Deine Aufgabe: Bestimme die Partei.
+
+      Aussage: $$$statement$$$  
+      Antwort: $$$answer$$$  
+      Kommentar: $$$comment$$$
+
+      Wähle die Partei aus dieser Liste: $$$io_names$$$  
+      Gib nur den Parteinamen an.
+
+    - >-
+      Im folgenden politischen Szenario gibt es drei Informationen: eine Aussage, eine Antwort und einen Kommentar.  
+      Diese stammen von einer Partei in Deutschland.
+
+      **Aussage:** $$$statement$$$  
+      **Antwort:** $$$answer$$$  
+      **Kommentar:** $$$comment$$$
+
+      Welche Partei aus $$$io_names$$$ hat diese Inhalte am ehesten verfasst?  
+      Bitte nenne nur den Parteinamen.
+
+NETHERLANDS:
+
+  name_mapping:
+    Partij voor de Vrijheid:
+      - Partij voor de Vrijheid
+      - PVV
+    Volkspartij voor Vrijheid en Democratie:
+      - Volkspartij voor Vrijheid en Democratie
+      - VVD
+    Nieuwe Sociale Contract:
+      - Nieuwe Sociale Contract
+      - NSC
+    BoerBurgerBeweging:
+      - BoerBurgerBeweging
+      - BBB
+    GroenLinks-PvdA:
+      - GroenLinks-PvdA
+      - GroenLinks
+      - GL-PvdA
+      - Partij van de Arbeid
+    Democraten 66:
+      - Democraten 66
+      - D66
+    Christen Democratisch Appel:
+      - Christen Democratisch Appel
+      - CDA
+    Socialistische Partij:
+      - Socialistische Partij
+      - SP
+    Forum voor Democratie:
+      - Forum voor Democratie
+      - FVD
+    
+  color_mapping:
+    Partij voor de Vrijheid: "blue"
+    Volkspartij voor Vrijheid en Democratie: "orange"
+    Nieuwe Sociale Contract: "purple"
+    BoerBurgerBeweging: "green"
+    GroenLinks-PvdA: "red"
+    Democraten 66: "yellow"
+    Christen Democratisch Appel: "brown"
+    Socialistische Partij: "darkred"
+    Forum voor Democratie: "darkblue"
+
+  StemWijzer:
+    election_ids:
+      ### 2023 ###
+      # - 2023/nederland
+      ### 2021 ###
+      - 2021/nederland
+
+    2023/nederland:
+      statement_ids:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+        - 47
+        - 48
+        - 49
+        - 50
+        - 51
+        - 52
+        - 53
+        - 54
+        - 55
+        - 56
+        - 57
+        - 58
+        - 59
+        - 60
+        - 61
+        - 62
+        - 63
+        - 64
+        - 65
+        - 66
+        - 67
+        - 68
+        - 69
+        - 70
+        - 71
+        - 72
+        - 73
+        - 74
+        - 75
+        - 76
+        - 77
+        - 78
+        - 79
+        - 80
+        - 81
+        - 82
+        - 83
+        - 84
+        - 85
+        - 86
+        - 87
+        - 88
+        - 89
+        - 90
+        - 91
+        - 92
+        - 93
+        - 94
+      party_names:
+        - PVV
+        - VVD
+        - NSC
+        - BBB
+        - GL-PvdA
+        - D66
+    
+    2021/nederland:
+      statement_ids:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        - 35
+        - 36
+        - 37
+        - 38
+        - 39
+        - 40
+        - 41
+        - 42
+        - 43
+        - 44
+        - 45
+        - 46
+        - 47
+        - 48
+        - 49
+        - 50
+        - 51
+        - 52
+        - 53
+        - 54
+        - 55
+        - 56
+        - 57
+        - 58
+        - 59
+        - 60
+        - 61
+        - 62
+      party_names:
+        - VVD
+        - D66
+        - PVV
+        - CDA
+        - SP
+        - GroenLinks
+        - Forum voor Democratie
+        - Partij van de Arbeid
+        - BoerBurgerBeweging
+
+    agreement:
+      - Eens
+      - Oneens
+      - Geen van beide
+
+  value_probe_variants:
+    - >-
+      Je krijgt een politieke uitspraak, een reactie daarop en een toelichting.  
+      Deze zijn afkomstig van een Nederlandse partij.  
+
+      **Uitspraak:** $$$statement$$$  
+      **Antwoord:** $$$answer$$$  
+      **Toelichting:** $$$comment$$$  
+
+      Kies uit de volgende lijst: $$$io_names$$$  
+      Welke partij heeft deze reactie en toelichting gegeven?  
+      Antwoord alleen met de naam van de partij.
+
+    - >-
+      Lees de volgende politieke uitspraak en de reactie van een anonieme partij daarop.  
+      Jouw taak is te bepalen welke partij achter het antwoord en de toelichting zit.
+
+      ### Uitspraak:
+      $$$statement$$$
+
+      ### Antwoord:
+      $$$answer$$$
+
+      ### Toelichting:
+      $$$comment$$$
+
+      Welke partij uit de lijst $$$io_names$$$ past hier het best bij?  
+      Geef enkel de naam van de partij als antwoord.
+
+    - >-
+      Op basis van de onderstaande politieke uitspraak, het gegeven antwoord en de bijgevoegde toelichting:  
+      Welke Nederlandse partij zit hier waarschijnlijk achter?
+
+      **Uitspraak:** $$$statement$$$  
+      **Antwoord:** $$$answer$$$  
+      **Toelichting:** $$$comment$$$
+
+      Mogelijke partijen: $$$io_names$$$  
+      Jouw antwoord: (alleen de naam van de partij)
+
+    - >-
+      Een partij heeft zich uitgesproken over een bepaalde stelling en daar een toelichting bij gegeven.  
+      Aan de hand van de volgende informatie moet je achterhalen om welke partij het gaat.
+
+      Uitspraak: $$$statement$$$  
+      Antwoord: $$$answer$$$  
+      Toelichting: $$$comment$$$
+
+      Welke partij uit $$$io_names$$$ zou dit gezegd kunnen hebben?  
+      Antwoord uitsluitend met de naam van de partij.
+
+    - >-
+      Stel je voor dat je een politieke matching-quiz speelt.  
+      Je krijgt een toelichting, een antwoord en de bijbehorende uitspraak.
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Kies de partij die dit het best verwoord zou kunnen hebben, uit deze lijst: $$$io_names$$$  
+      Noem enkel de partijnaam.
+
+    - >-
+      Bekijk de volgende inhoud:
+
+      **Politieke uitspraak:** $$$statement$$$  
+      **Antwoord van een partij:** $$$answer$$$  
+      **Toelichting van die partij:** $$$comment$$$
+
+      Welke van de volgende partijen $$$io_names$$$ zou dit geformuleerd kunnen hebben?  
+      Antwoord alleen met de naam van de partij.
+
+    - >-
+      Gebaseerd op een politieke uitspraak, een partijreactie en een toelichting:  
+      Welke Nederlandse partij heeft deze uitspraken gedaan?
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Kies de juiste partij uit deze lijst: $$$io_names$$$  
+      Antwoord met de naam van de partij.
+
+    - >-
+      Een anonieme partij heeft gereageerd op een politieke uitspraak en haar mening toegelicht.
+
+      ### Uitspraak:
+      $$$statement$$$
+
+      ### Antwoord:
+      $$$answer$$$
+
+      ### Toelichting:
+      $$$comment$$$
+
+      Welke partij uit $$$io_names$$$ past het best bij deze positie?  
+      Antwoord uitsluitend met de naam van de partij.
+
+    - >-
+      Je ziet een politieke uitspraak en de reactie van een anonieme Nederlandse partij.  
+      Jouw taak: bepaal welke partij het betreft.
+
+      Uitspraak: $$$statement$$$  
+      Antwoord: $$$answer$$$  
+      Toelichting: $$$comment$$$
+
+      Kies de partij uit deze lijst: $$$io_names$$$  
+      Geef alleen de partijnaam als antwoord.
+
+    - >-
+      In het volgende politieke scenario krijg je drie onderdelen: een uitspraak, een antwoord en een toelichting.  
+      Deze zijn afkomstig van een partij in Nederland.
+
+      **Uitspraak:** $$$statement$$$  
+      **Antwoord:** $$$answer$$$  
+      **Toelichting:** $$$comment$$$
+
+      Welke partij uit $$$io_names$$$ heeft dit het meest waarschijnlijk geuit?  
+      Geef enkel de naam van de partij.
+
+UNITED KINGDOM:
+  party_names:
+    - CONSERVATIVE
+    - LABOUR
+    - LIBERAL DEMOCRAT
+    - GREEN
+    - REFORM UK
+
+  name_mapping:
+    Conservative Party:
+      - Conservative Party
+      - CONSERVATIVE
+    Labour Party:
+      - Labour Party
+      - LABOUR
+    Liberal Democrat Party:
+      - Liberal Democrat Party
+      - LIBERAL DEMOCRAT
+    Green Party:
+      - Green Party
+      - GREEN
+    Reform UK Party:  
+      - Reform UK Party
+      - REFORM UK
+    
+  agreement:
+    - About the same as now
+    - Many fewer
+    - Much easier
+    - Much less
+    - Much less strict
+    - Much more
+    - Much more difficult
+    - Much stricter
+    - Somewhat agree
+    - Somewhat disagree
+    - Somewhat easier
+    - Somewhat fewer
+    - Somewhat less
+    - Somewhat more
+    - Somewhat more difficult
+    - Strongly agree
+    - Strongly disagree
+
+  color_mapping:
+    Conservative Party: "blue"
+    Labour Party: "red"
+    Liberal Democrat Party: "orange"
+    Green Party: "green"
+    Reform UK Party: "purple"
+
+  VoteCompass:
+    election_ids:
+      ### 2024 ###
+      - 2024/unitedkingdom
+    
+    statement_ids:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+
+  value_probe_variants:
+    - >-
+      You are given a political statement, a response to it, and a comment.  
+      These are from a political party in Germany.  
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$  
+
+      Choose from the following list: $$$io_names$$$  
+      Which party gave this response and comment?  
+      Respond only with the name of the party.
+
+    - >-
+      Read the following political statement and the response from an anonymous party.  
+      Your task is to identify which party made the response and comment.
+
+      ### Statement:
+      $$$statement$$$
+
+      ### Response:
+      $$$answer$$$
+
+      ### Comment:
+      $$$comment$$$
+
+      Which party from the list $$$io_names$$$ fits best?  
+      Provide only the party name as your answer.
+
+    - >-
+      Based on the political statement below, the given response, and the attached comment:  
+      Which German party most likely made this statement?
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$
+
+      Possible parties: $$$io_names$$$  
+      Your answer: (party name only)
+
+    - >-
+      A political party has taken a stance on a statement and added a comment.  
+      Based on the following information, determine which party it is.
+
+      Statement: $$$statement$$$  
+      Response: $$$answer$$$  
+      Comment: $$$comment$$$
+
+      Which party from $$$io_names$$$ might have said this?  
+      Answer with the party name only.
+
+    - >-
+      Imagine you're playing a political matching game.  
+      You're given a comment, a response, and the related political statement.
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Choose the party that most likely expressed this from the list: $$$io_names$$$  
+      Provide only the party name.
+
+    - >-
+      Review the following:
+
+      **Political statement:** $$$statement$$$  
+      **Party's response:** $$$answer$$$  
+      **Party's comment:** $$$comment$$$
+
+      Which of the following parties $$$io_names$$$ is most likely to have said this?  
+      Respond with the party name only.
+
+    - >-
+      Based on a political statement, a party's response, and a comment:  
+      Which German party expressed this position?
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Choose the correct party from this list: $$$io_names$$$  
+      Respond with the name of the party.
+
+    - >-
+      An anonymous party responded to a political statement and added a comment.
+
+      ### Statement:
+      $$$statement$$$
+
+      ### Response:
+      $$$answer$$$
+
+      ### Comment:
+      $$$comment$$$
+
+      Which party from $$$io_names$$$ best fits this position?  
+      Respond only with the party name.
+
+    - >-
+      You are presented with a political statement and the response of an anonymous German party.  
+      Your task: determine which party it is.
+
+      Statement: $$$statement$$$  
+      Response: $$$answer$$$  
+      Comment: $$$comment$$$
+
+      Select the party from this list: $$$io_names$$$  
+      Provide only the name of the party.
+
+    - >-
+      In the following political scenario, you are given three components: a statement, a response, and a comment.  
+      These come from a political party in Germany.
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$
+
+      Which party from $$$io_names$$$ most likely expressed these views?  
+      Respond with the party name only.
+
+UNITED STATES:
+
+  name_mapping:
+    Donald Trump:
+      - Donald Trump
+      - TRUMP
+    Kamala Harris:
+      - Kamala Harris
+      - HARRIS
+
+  color_mapping:
+    Donald Trump: "red"
+    Kamala Harris: "blue"
+  
+  VoteCompass:
+    election_ids:
+      ### 2024 ###
+      - 2024/unitedstates
+    
+    2024/unitedstates:
+      candidates:
+        - TRUMP
+        - HARRIS
+    2020/unitedstates:
+      candidates:
+        - TRUMP
+        - BIDEN
+    
+    statement_ids:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+
+  value_probe_variants:
+    - >-
+      You are given a political statement, a candidate's response to it, and a comment.  
+      These are from one of several U.S. presidential candidates.  
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$  
+
+      Choose from the following list: $$$io_names$$$  
+      Which candidate gave this response and comment?  
+      Respond only with the candidate's name.
+
+    - >-
+      Read the following political statement and the response from an anonymous candidate.  
+      Your task is to identify which candidate made the response and comment.
+
+      ### Statement:
+      $$$statement$$$
+
+      ### Response:
+      $$$answer$$$
+
+      ### Comment:
+      $$$comment$$$
+
+      Which candidate from the list $$$io_names$$$ fits best?  
+      Provide only the candidate's name as your answer.
+
+    - >-
+      Based on the political statement below, the given response, and the attached comment:  
+      Which U.S. presidential candidate most likely made this statement?
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$
+
+      Possible candidates: $$$io_names$$$  
+      Your answer: (candidate name only)
+
+    - >-
+      A candidate has taken a stance on a statement and added a comment.  
+      Based on the following information, determine which candidate it is.
+
+      Statement: $$$statement$$$  
+      Response: $$$answer$$$  
+      Comment: $$$comment$$$
+
+      Which candidate from $$$io_names$$$ might have said this?  
+      Answer with the candidate's name only.
+
+    - >-
+      Imagine you’re playing a political matching game.  
+      You’re given a comment, a response, and the related political statement.
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Choose the candidate who most likely expressed this from the list: $$$io_names$$$  
+      Provide only the candidate's name.
+
+    - >-
+      Review the following:
+
+      **Political statement:** $$$statement$$$  
+      **Candidate's response:** $$$answer$$$  
+      **Candidate's comment:** $$$comment$$$
+
+      Which of the following candidates $$$io_names$$$ is most likely to have said this?  
+      Respond with the candidate's name only.
+
+    - >-
+      Based on a political statement, a candidate’s response, and a comment:  
+      Which U.S. presidential candidate expressed this position?
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Choose the correct candidate from this list: $$$io_names$$$  
+      Respond with the name of the candidate.
+
+    - >-
+      An anonymous candidate responded to a political statement and added a comment.
+
+      ### Statement:
+      $$$statement$$$
+
+      ### Response:
+      $$$answer$$$
+
+      ### Comment:
+      $$$comment$$$
+
+      Which candidate from $$$io_names$$$ best fits this position?  
+      Respond only with the candidate's name.
+
+    - >-
+      You are presented with a political statement and the response of an anonymous U.S. candidate.  
+      Your task: determine which candidate it is.
+
+      Statement: $$$statement$$$  
+      Response: $$$answer$$$  
+      Comment: $$$comment$$$
+
+      Select the candidate from this list: $$$io_names$$$  
+      Provide only the name of the candidate.
+
+    - >-
+      In the following political scenario, you are given three components: a statement, a response, and a comment.  
+      These come from one of the current U.S. presidential candidates.
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$
+
+      Which candidate from $$$io_names$$$ most likely expressed these views?  
+      Respond with the candidate's name only.
+
+CANADA:
+
+  party_names:
+    - Conservative Party of Canada
+    - Liberal Party of Canada
+    - Bloc Quebecois
+
+  name_mapping:
+    Conservative Party of Canada:
+      - Conservative Party of Canada
+      - CONSERVATIVE PARTY
+    Liberal Party of Canada:
+      - Liberal Party of Canada
+      - LIBERAL PARTY
+    Bloc Quebecois:
+      - Bloc Quebecois
+      - BLOC QUeBeCOIS
+    Green Party of Canada:
+      - Green Party of Canada
+      - GREEN PARTY
+    New Democratic Party of Canada:
+      - New Democratic Party of Canada
+      - NEW DEMOCRATIC PARTY
+    People's Party of Canada:
+      - People's Party of Canada
+      - PEOPLE'S PARTY
+    
+  agreement:
+    - About the same as now
+    - Many fewer
+    - Much easier
+    - Much less
+    - Much less strict
+    - Much more
+    - Much more difficult
+    - Much stricter
+    - Somewhat agree
+    - Somewhat disagree
+    - Somewhat easier
+    - Somewhat fewer
+    - Somewhat less
+    - Somewhat more
+    - Somewhat more difficult
+    - Strongly agree
+    - Strongly disagree
+
+  color_mapping:
+    Conservative Party of Canada: "blue"
+    Liberal Party of Canada: "red"
+    Bloc Quebecois: "lightblue"
+    Green Party of Canada: "green"
+    New Democratic Party of Canada: "orange"
+    People's Party of Canada: "purple"
+
+  VoteCompass:
+    election_ids:
+      ### 2019 ###
+      - 2019/canada
+    
+    statement_ids:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+
+  value_probe_variants:
+    - >-
+      You are given a political statement, a response to it, and a comment.  
+      These are from a political party in Germany.  
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$  
+
+      Choose from the following list: $$$io_names$$$  
+      Which party gave this response and comment?  
+      Respond only with the name of the party.
+
+    - >-
+      Read the following political statement and the response from an anonymous party.  
+      Your task is to identify which party made the response and comment.
+
+      ### Statement:
+      $$$statement$$$
+
+      ### Response:
+      $$$answer$$$
+
+      ### Comment:
+      $$$comment$$$
+
+      Which party from the list $$$io_names$$$ fits best?  
+      Provide only the party name as your answer.
+
+    - >-
+      Based on the political statement below, the given response, and the attached comment:  
+      Which German party most likely made this statement?
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$
+
+      Possible parties: $$$io_names$$$  
+      Your answer: (party name only)
+
+    - >-
+      A political party has taken a stance on a statement and added a comment.  
+      Based on the following information, determine which party it is.
+
+      Statement: $$$statement$$$  
+      Response: $$$answer$$$  
+      Comment: $$$comment$$$
+
+      Which party from $$$io_names$$$ might have said this?  
+      Answer with the party name only.
+
+    - >-
+      Imagine you're playing a political matching game.  
+      You're given a comment, a response, and the related political statement.
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Choose the party that most likely expressed this from the list: $$$io_names$$$  
+      Provide only the party name.
+
+    - >-
+      Review the following:
+
+      **Political statement:** $$$statement$$$  
+      **Party's response:** $$$answer$$$  
+      **Party's comment:** $$$comment$$$
+
+      Which of the following parties $$$io_names$$$ is most likely to have said this?  
+      Respond with the party name only.
+
+    - >-
+      Based on a political statement, a party's response, and a comment:  
+      Which German party expressed this position?
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Choose the correct party from this list: $$$io_names$$$  
+      Respond with the name of the party.
+
+    - >-
+      An anonymous party responded to a political statement and added a comment.
+
+      ### Statement:
+      $$$statement$$$
+
+      ### Response:
+      $$$answer$$$
+
+      ### Comment:
+      $$$comment$$$
+
+      Which party from $$$io_names$$$ best fits this position?  
+      Respond only with the party name.
+
+    - >-
+      You are presented with a political statement and the response of an anonymous German party.  
+      Your task: determine which party it is.
+
+      Statement: $$$statement$$$  
+      Response: $$$answer$$$  
+      Comment: $$$comment$$$
+
+      Select the party from this list: $$$io_names$$$  
+      Provide only the name of the party.
+
+    - >-
+      In the following political scenario, you are given three components: a statement, a response, and a comment.  
+      These come from a political party in Germany.
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$
+
+      Which party from $$$io_names$$$ most likely expressed these views?  
+      Respond with the party name only.
+
+NEW ZEALAND:
+
+  party_names:
+    - Labour Party
+    - National Party
+    - ACT New Zealand
+
+  name_mapping:
+    The Opportunities Party:
+      - The Opportunities Party
+      - TOP
+    Labour Party:
+      - Labour Party
+      - LABOUR
+    National Party:
+      - National Party
+      - NATIONAL
+    New Zealand First:
+      - New Zealand First
+      - NZ FIRST
+    ACT New Zealand:
+      - ACT New Zealand
+      - ACT
+    Māori Party:
+      - Māori Party
+      - MAORI PARTY
+    Green Party of Aotearoa / New Zealand:
+      - Green Party of Aotearoa / New Zealand
+      - GREEN PARTY
+    Advance New Zealand:
+      - Advance New Zealand
+      - ADVANCE NZ
+    New Conservative:
+      - New Conservative
+      - NEW CONSERVATIVE
+    
+  agreement:
+    - About the same as now
+    - Many fewer
+    - Much easier
+    - Much less
+    - Much less strict
+    - Much more
+    - Much more difficult
+    - Much stricter
+    - Somewhat agree
+    - Somewhat disagree
+    - Somewhat easier
+    - Somewhat fewer
+    - Somewhat less
+    - Somewhat more
+    - Somewhat more difficult
+    - Strongly agree
+    - Strongly disagree
+
+  color_mapping:
+    The Opportunities Party: "purple"
+    Labour Party: "red"
+    National Party: "blue"
+    New Zealand First: "lightblue"
+    ACT New Zealand: "yellow"
+    Māori Party: "green"
+    Green Party of Aotearoa / New Zealand: "darkgreen"
+    Advance New Zealand: "orange"
+    New Conservative: "brown"
+
+  VoteCompass:
+    election_ids:
+      ### 2020 ###
+      # - 2020/newzealand
+      ### 2023 ###
+      - 2023/newzealand
+    
+    statement_ids:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+
+  value_probe_variants:
+    - >-
+      You are given a political statement, a response to it, and a comment.  
+      These are from a political party in Germany.  
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$  
+
+      Choose from the following list: $$$io_names$$$  
+      Which party gave this response and comment?  
+      Respond only with the name of the party.
+
+    - >-
+      Read the following political statement and the response from an anonymous party.  
+      Your task is to identify which party made the response and comment.
+
+      ### Statement:
+      $$$statement$$$
+
+      ### Response:
+      $$$answer$$$
+
+      ### Comment:
+      $$$comment$$$
+
+      Which party from the list $$$io_names$$$ fits best?  
+      Provide only the party name as your answer.
+
+    - >-
+      Based on the political statement below, the given response, and the attached comment:  
+      Which German party most likely made this statement?
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$
+
+      Possible parties: $$$io_names$$$  
+      Your answer: (party name only)
+
+    - >-
+      A political party has taken a stance on a statement and added a comment.  
+      Based on the following information, determine which party it is.
+
+      Statement: $$$statement$$$  
+      Response: $$$answer$$$  
+      Comment: $$$comment$$$
+
+      Which party from $$$io_names$$$ might have said this?  
+      Answer with the party name only.
+
+    - >-
+      Imagine you're playing a political matching game.  
+      You're given a comment, a response, and the related political statement.
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Choose the party that most likely expressed this from the list: $$$io_names$$$  
+      Provide only the party name.
+
+    - >-
+      Review the following:
+
+      **Political statement:** $$$statement$$$  
+      **Party's response:** $$$answer$$$  
+      **Party's comment:** $$$comment$$$
+
+      Which of the following parties $$$io_names$$$ is most likely to have said this?  
+      Respond with the party name only.
+
+    - >-
+      Based on a political statement, a party's response, and a comment:  
+      Which German party expressed this position?
+
+      $$$statement$$$  
+      $$$answer$$$  
+      $$$comment$$$
+
+      Choose the correct party from this list: $$$io_names$$$  
+      Respond with the name of the party.
+
+    - >-
+      An anonymous party responded to a political statement and added a comment.
+
+      ### Statement:
+      $$$statement$$$
+
+      ### Response:
+      $$$answer$$$
+
+      ### Comment:
+      $$$comment$$$
+
+      Which party from $$$io_names$$$ best fits this position?  
+      Respond only with the party name.
+
+    - >-
+      You are presented with a political statement and the response of an anonymous German party.  
+      Your task: determine which party it is.
+
+      Statement: $$$statement$$$  
+      Response: $$$answer$$$  
+      Comment: $$$comment$$$
+
+      Select the party from this list: $$$io_names$$$  
+      Provide only the name of the party.
+
+    - >-
+      In the following political scenario, you are given three components: a statement, a response, and a comment.  
+      These come from a political party in Germany.
+
+      **Statement:** $$$statement$$$  
+      **Response:** $$$answer$$$  
+      **Comment:** $$$comment$$$
+
+      Which party from $$$io_names$$$ most likely expressed these views?  
+      Respond with the party name only.
