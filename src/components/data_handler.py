@@ -166,7 +166,7 @@ class Germany(Country):
         """
         assert label is not None or _id is not None, "Either label or id must be provided."
         
-        statements = json.loads(open(f"{self.path_data_dir}/wahl-o-mat/qual-o-mat-data/data/{election_id}/statement.json").read())
+        statements = json.loads(open(f"{self.path_data_dir}/qual-o-mat-data/data/{election_id}/statement.json").read())
         
         if label is not None:
             statement = [statement for statement in statements if statement['label'] == label][0]
@@ -198,7 +198,7 @@ class Germany(Country):
         """
         assert name is not None or _id is not None, "Either name or id must be provided."
         
-        parties = json.loads(open(f"{self.path_data_dir}/wahl-o-mat/qual-o-mat-data/data/{election_id}/party.json").read())
+        parties = json.loads(open(f"{self.path_data_dir}/qual-o-mat-data/data/{election_id}/party.json").read())
         
         if name is not None:
             party = [party for party in parties if party['name'] in name or name in party['name']]
