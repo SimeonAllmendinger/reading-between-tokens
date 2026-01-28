@@ -226,6 +226,8 @@ class Inference_Hook:
             return logits_batch
         
         logits, cache = self.model.run_with_cache(qa_tokens, return_cache_object=True)
+        
+        resids = {}
 
         if decompose_activations:
             # get decompose resid for all qa_tokens -> n_layer, batch_size, sequence_length, d_model
