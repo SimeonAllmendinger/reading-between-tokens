@@ -299,17 +299,27 @@ def compute_value_probes_similarity(
     LOGGER.info("Visualizing Value Probes Similarity Matrix")
     
     # Visualize the similarity matrix and a PCA/TSNE plot as subfigures
-    fig, ax = plt.subplots(1, 1, figsize=(12, 6))
+    fig, ax = plt.subplots(1, 1, figsize=(12, 12))
     
     # Plot the similarity matrix
-    ax.imshow(similarity_matrix, cmap='viridis')
+    im = ax.imshow(similarity_matrix, cmap='viridis')
     ax.set_title("Value Probes Similarity Matrix")
     ax.set_xlabel("Value Probes")
     ax.set_ylabel("Value Probes")
     ax.set_xticks(range(len(value_probes)))
     ax.set_yticks(range(len(value_probes)))
-    ax.set_xticklabels([value_probe.issue_owner.name for value_probe in value_probes], rotation=45)
-    ax.set_yticklabels([value_probe.issue_owner.name for value_probe in value_probes])
+    ax.set_xticklabels(
+        [value_probe.issue_owner.name_mapped for value_probe in value_probes],
+        rotation=15,
+        ha='right',
+        fontsize=12
+    )
+    ax.set_yticklabels(
+        [value_probe.issue_owner.name_mapped for value_probe in value_probes],
+        fontsize=12
+    )
+    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+    cbar.set_label("Cosine similarity")
     
     path_savefig= os.path.join(
         "results",

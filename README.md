@@ -1,6 +1,5 @@
-# Reading Between Tokens
+# Reading Between the Tokens
 
-Mechanistic forecasting of political preferences with large language models (LLMs).
 This repository accompanies an ICML paper on **mechanistic forecasting**: a method that aggregates party-aligned latent activations in LLM MLPs to predict population-level preference distributions, and compares them to survey data.
 
 ## Code overview

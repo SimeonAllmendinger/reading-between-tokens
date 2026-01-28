@@ -367,7 +367,7 @@ class Probing(BaseModel):
             self.path_probing_dir,
             self.country.lower(),
             self.model_ids[0],
-            file_dispatcher
+            file_path,
         )
         
         # Check if the path and directory exist
