@@ -657,7 +657,7 @@ UNITED KINGDOM:
     election_ids:
       ### 2024 ###
       - 2024/unitedkingdom
-    
+
     statement_ids:
       - 1
       - 2
@@ -692,19 +692,19 @@ UNITED KINGDOM:
 
   value_probe_variants:
     - >-
-      You are given a political statement, a response to it, and a comment.  
-      These are from a political party in Germany.  
+      You are given a political statement, a response to it, and a comment.
+      These are from a political party in the United Kingdom.
 
-      **Statement:** $$$statement$$$  
-      **Response:** $$$answer$$$  
-      **Comment:** $$$comment$$$  
+      **Statement:** $$$statement$$$
+      **Response:** $$$answer$$$
+      **Comment:** $$$comment$$$
 
-      Choose from the following list: $$$io_names$$$  
-      Which party gave this response and comment?  
+      Choose from the following list: $$$io_names$$$
+      Which party gave this response and comment?
       Respond only with the name of the party.
 
     - >-
-      Read the following political statement and the response from an anonymous party.  
+      Read the following political statement and the response from an anonymous party.
       Your task is to identify which party made the response and comment.
 
       ### Statement:
@@ -716,61 +716,61 @@ UNITED KINGDOM:
       ### Comment:
       $$$comment$$$
 
-      Which party from the list $$$io_names$$$ fits best?  
+      Which party from the list $$$io_names$$$ fits best?
       Provide only the party name as your answer.
 
     - >-
-      Based on the political statement below, the given response, and the attached comment:  
-      Which German party most likely made this statement?
+      Based on the political statement below, the given response, and the attached comment:
+      Which UK party most likely made this statement?
 
-      **Statement:** $$$statement$$$  
-      **Response:** $$$answer$$$  
+      **Statement:** $$$statement$$$
+      **Response:** $$$answer$$$
       **Comment:** $$$comment$$$
 
-      Possible parties: $$$io_names$$$  
+      Possible parties: $$$io_names$$$
       Your answer: (party name only)
 
     - >-
-      A political party has taken a stance on a statement and added a comment.  
+      A political party has taken a stance on a statement and added a comment.
       Based on the following information, determine which party it is.
 
-      Statement: $$$statement$$$  
-      Response: $$$answer$$$  
+      Statement: $$$statement$$$
+      Response: $$$answer$$$
       Comment: $$$comment$$$
 
-      Which party from $$$io_names$$$ might have said this?  
+      Which party from $$$io_names$$$ might have said this?
       Answer with the party name only.
 
     - >-
-      Imagine you're playing a political matching game.  
+      Imagine you're playing a political matching game.
       You're given a comment, a response, and the related political statement.
 
-      $$$statement$$$  
-      $$$answer$$$  
+      $$$statement$$$
+      $$$answer$$$
       $$$comment$$$
 
-      Choose the party that most likely expressed this from the list: $$$io_names$$$  
+      Choose the party that most likely expressed this from the list: $$$io_names$$$
       Provide only the party name.
 
     - >-
       Review the following:
 
-      **Political statement:** $$$statement$$$  
-      **Party's response:** $$$answer$$$  
+      **Political statement:** $$$statement$$$
+      **Party's response:** $$$answer$$$
       **Party's comment:** $$$comment$$$
 
-      Which of the following parties $$$io_names$$$ is most likely to have said this?  
+      Which of the following parties $$$io_names$$$ is most likely to have said this?
       Respond with the party name only.
 
     - >-
-      Based on a political statement, a party's response, and a comment:  
-      Which German party expressed this position?
+      Based on a political statement, a party's response, and a comment:
+      Which UK party expressed this position?
 
-      $$$statement$$$  
-      $$$answer$$$  
+      $$$statement$$$
+      $$$answer$$$
       $$$comment$$$
 
-      Choose the correct party from this list: $$$io_names$$$  
+      Choose the correct party from this list: $$$io_names$$$
       Respond with the name of the party.
 
     - >-
@@ -785,29 +785,29 @@ UNITED KINGDOM:
       ### Comment:
       $$$comment$$$
 
-      Which party from $$$io_names$$$ best fits this position?  
+      Which party from $$$io_names$$$ best fits this position?
       Respond only with the party name.
 
     - >-
-      You are presented with a political statement and the response of an anonymous German party.  
+      You are presented with a political statement and the response of an anonymous UK party.
       Your task: determine which party it is.
 
-      Statement: $$$statement$$$  
-      Response: $$$answer$$$  
+      Statement: $$$statement$$$
+      Response: $$$answer$$$
       Comment: $$$comment$$$
 
-      Select the party from this list: $$$io_names$$$  
+      Select the party from this list: $$$io_names$$$
       Provide only the name of the party.
 
     - >-
-      In the following political scenario, you are given three components: a statement, a response, and a comment.  
-      These come from a political party in Germany.
+      In the following political scenario, you are given three components: a statement, a response, and a comment.
+      These come from a political party in the United Kingdom.
 
-      **Statement:** $$$statement$$$  
-      **Response:** $$$answer$$$  
+      **Statement:** $$$statement$$$
+      **Response:** $$$answer$$$
       **Comment:** $$$comment$$$
 
-      Which party from $$$io_names$$$ most likely expressed these views?  
+      Which party from $$$io_names$$$ most likely expressed these views?
       Respond with the party name only.
 
 UNITED STATES:
@@ -1043,7 +1043,7 @@ CANADA:
     election_ids:
       ### 2019 ###
       - 2019/canada
-    
+
     statement_ids:
       - 1
       - 2
@@ -1078,19 +1078,19 @@ CANADA:
 
   value_probe_variants:
     - >-
-      You are given a political statement, a response to it, and a comment.  
-      These are from a political party in Germany.  
+      You are given a political statement, a response to it, and a comment.
+      These are from a political party in Canada.
 
-      **Statement:** $$$statement$$$  
-      **Response:** $$$answer$$$  
-      **Comment:** $$$comment$$$  
+      **Statement:** $$$statement$$$
+      **Response:** $$$answer$$$
+      **Comment:** $$$comment$$$
 
-      Choose from the following list: $$$io_names$$$  
-      Which party gave this response and comment?  
+      Choose from the following list: $$$io_names$$$
+      Which party gave this response and comment?
       Respond only with the name of the party.
 
     - >-
-      Read the following political statement and the response from an anonymous party.  
+      Read the following political statement and the response from an anonymous party.
       Your task is to identify which party made the response and comment.
 
       ### Statement:
@@ -1102,61 +1102,61 @@ CANADA:
       ### Comment:
       $$$comment$$$
 
-      Which party from the list $$$io_names$$$ fits best?  
+      Which party from the list $$$io_names$$$ fits best?
       Provide only the party name as your answer.
 
     - >-
-      Based on the political statement below, the given response, and the attached comment:  
-      Which German party most likely made this statement?
+      Based on the political statement below, the given response, and the attached comment:
+      Which Canadian party most likely made this statement?
 
-      **Statement:** $$$statement$$$  
-      **Response:** $$$answer$$$  
+      **Statement:** $$$statement$$$
+      **Response:** $$$answer$$$
       **Comment:** $$$comment$$$
 
-      Possible parties: $$$io_names$$$  
+      Possible parties: $$$io_names$$$
       Your answer: (party name only)
 
     - >-
-      A political party has taken a stance on a statement and added a comment.  
+      A political party has taken a stance on a statement and added a comment.
       Based on the following information, determine which party it is.
 
-      Statement: $$$statement$$$  
-      Response: $$$answer$$$  
+      Statement: $$$statement$$$
+      Response: $$$answer$$$
       Comment: $$$comment$$$
 
-      Which party from $$$io_names$$$ might have said this?  
+      Which party from $$$io_names$$$ might have said this?
       Answer with the party name only.
 
     - >-
-      Imagine you're playing a political matching game.  
+      Imagine you're playing a political matching game.
       You're given a comment, a response, and the related political statement.
 
-      $$$statement$$$  
-      $$$answer$$$  
+      $$$statement$$$
+      $$$answer$$$
       $$$comment$$$
 
-      Choose the party that most likely expressed this from the list: $$$io_names$$$  
+      Choose the party that most likely expressed this from the list: $$$io_names$$$
       Provide only the party name.
 
     - >-
       Review the following:
 
-      **Political statement:** $$$statement$$$  
-      **Party's response:** $$$answer$$$  
+      **Political statement:** $$$statement$$$
+      **Party's response:** $$$answer$$$
       **Party's comment:** $$$comment$$$
 
-      Which of the following parties $$$io_names$$$ is most likely to have said this?  
+      Which of the following parties $$$io_names$$$ is most likely to have said this?
       Respond with the party name only.
 
     - >-
-      Based on a political statement, a party's response, and a comment:  
-      Which German party expressed this position?
+      Based on a political statement, a party's response, and a comment:
+      Which Canadian party expressed this position?
 
-      $$$statement$$$  
-      $$$answer$$$  
+      $$$statement$$$
+      $$$answer$$$
       $$$comment$$$
 
-      Choose the correct party from this list: $$$io_names$$$  
+      Choose the correct party from this list: $$$io_names$$$
       Respond with the name of the party.
 
     - >-
@@ -1171,29 +1171,29 @@ CANADA:
       ### Comment:
       $$$comment$$$
 
-      Which party from $$$io_names$$$ best fits this position?  
+      Which party from $$$io_names$$$ best fits this position?
       Respond only with the party name.
 
     - >-
-      You are presented with a political statement and the response of an anonymous German party.  
+      You are presented with a political statement and the response of an anonymous Canadian party.
       Your task: determine which party it is.
 
-      Statement: $$$statement$$$  
-      Response: $$$answer$$$  
+      Statement: $$$statement$$$
+      Response: $$$answer$$$
       Comment: $$$comment$$$
 
-      Select the party from this list: $$$io_names$$$  
+      Select the party from this list: $$$io_names$$$
       Provide only the name of the party.
 
     - >-
-      In the following political scenario, you are given three components: a statement, a response, and a comment.  
-      These come from a political party in Germany.
+      In the following political scenario, you are given three components: a statement, a response, and a comment.
+      These come from a political party in Canada.
 
-      **Statement:** $$$statement$$$  
-      **Response:** $$$answer$$$  
+      **Statement:** $$$statement$$$
+      **Response:** $$$answer$$$
       **Comment:** $$$comment$$$
 
-      Which party from $$$io_names$$$ most likely expressed these views?  
+      Which party from $$$io_names$$$ most likely expressed these views?
       Respond with the party name only.
 
 NEW ZEALAND:
@@ -1268,7 +1268,7 @@ NEW ZEALAND:
       # - 2020/newzealand
       ### 2023 ###
       - 2023/newzealand
-    
+
     statement_ids:
       - 1
       - 2
@@ -1303,19 +1303,19 @@ NEW ZEALAND:
 
   value_probe_variants:
     - >-
-      You are given a political statement, a response to it, and a comment.  
-      These are from a political party in Germany.  
+      You are given a political statement, a response to it, and a comment.
+      These are from a political party in New Zealand.
 
-      **Statement:** $$$statement$$$  
-      **Response:** $$$answer$$$  
-      **Comment:** $$$comment$$$  
+      **Statement:** $$$statement$$$
+      **Response:** $$$answer$$$
+      **Comment:** $$$comment$$$
 
-      Choose from the following list: $$$io_names$$$  
-      Which party gave this response and comment?  
+      Choose from the following list: $$$io_names$$$
+      Which party gave this response and comment?
       Respond only with the name of the party.
 
     - >-
-      Read the following political statement and the response from an anonymous party.  
+      Read the following political statement and the response from an anonymous party.
       Your task is to identify which party made the response and comment.
 
       ### Statement:
@@ -1327,61 +1327,61 @@ NEW ZEALAND:
       ### Comment:
       $$$comment$$$
 
-      Which party from the list $$$io_names$$$ fits best?  
+      Which party from the list $$$io_names$$$ fits best?
       Provide only the party name as your answer.
 
     - >-
-      Based on the political statement below, the given response, and the attached comment:  
-      Which German party most likely made this statement?
+      Based on the political statement below, the given response, and the attached comment:
+      Which New Zealand party most likely made this statement?
 
-      **Statement:** $$$statement$$$  
-      **Response:** $$$answer$$$  
+      **Statement:** $$$statement$$$
+      **Response:** $$$answer$$$
       **Comment:** $$$comment$$$
 
-      Possible parties: $$$io_names$$$  
+      Possible parties: $$$io_names$$$
       Your answer: (party name only)
 
     - >-
-      A political party has taken a stance on a statement and added a comment.  
+      A political party has taken a stance on a statement and added a comment.
       Based on the following information, determine which party it is.
 
-      Statement: $$$statement$$$  
-      Response: $$$answer$$$  
+      Statement: $$$statement$$$
+      Response: $$$answer$$$
       Comment: $$$comment$$$
 
-      Which party from $$$io_names$$$ might have said this?  
+      Which party from $$$io_names$$$ might have said this?
       Answer with the party name only.
 
     - >-
-      Imagine you're playing a political matching game.  
+      Imagine you're playing a political matching game.
       You're given a comment, a response, and the related political statement.
 
-      $$$statement$$$  
-      $$$answer$$$  
+      $$$statement$$$
+      $$$answer$$$
       $$$comment$$$
 
-      Choose the party that most likely expressed this from the list: $$$io_names$$$  
+      Choose the party that most likely expressed this from the list: $$$io_names$$$
       Provide only the party name.
 
     - >-
       Review the following:
 
-      **Political statement:** $$$statement$$$  
-      **Party's response:** $$$answer$$$  
+      **Political statement:** $$$statement$$$
+      **Party's response:** $$$answer$$$
       **Party's comment:** $$$comment$$$
 
-      Which of the following parties $$$io_names$$$ is most likely to have said this?  
+      Which of the following parties $$$io_names$$$ is most likely to have said this?
       Respond with the party name only.
 
     - >-
-      Based on a political statement, a party's response, and a comment:  
-      Which German party expressed this position?
+      Based on a political statement, a party's response, and a comment:
+      Which New Zealand party expressed this position?
 
-      $$$statement$$$  
-      $$$answer$$$  
+      $$$statement$$$
+      $$$answer$$$
       $$$comment$$$
 
-      Choose the correct party from this list: $$$io_names$$$  
+      Choose the correct party from this list: $$$io_names$$$
       Respond with the name of the party.
 
     - >-
@@ -1396,27 +1396,27 @@ NEW ZEALAND:
       ### Comment:
       $$$comment$$$
 
-      Which party from $$$io_names$$$ best fits this position?  
+      Which party from $$$io_names$$$ best fits this position?
       Respond only with the party name.
 
     - >-
-      You are presented with a political statement and the response of an anonymous German party.  
+      You are presented with a political statement and the response of an anonymous New Zealand party.
       Your task: determine which party it is.
 
-      Statement: $$$statement$$$  
-      Response: $$$answer$$$  
+      Statement: $$$statement$$$
+      Response: $$$answer$$$
       Comment: $$$comment$$$
 
-      Select the party from this list: $$$io_names$$$  
+      Select the party from this list: $$$io_names$$$
       Provide only the name of the party.
 
     - >-
-      In the following political scenario, you are given three components: a statement, a response, and a comment.  
-      These come from a political party in Germany.
+      In the following political scenario, you are given three components: a statement, a response, and a comment.
+      These come from a political party in New Zealand.
 
-      **Statement:** $$$statement$$$  
-      **Response:** $$$answer$$$  
+      **Statement:** $$$statement$$$
+      **Response:** $$$answer$$$
       **Comment:** $$$comment$$$
 
-      Which party from $$$io_names$$$ most likely expressed these views?  
+      Which party from $$$io_names$$$ most likely expressed these views?
       Respond with the party name only.
